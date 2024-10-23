@@ -78,7 +78,7 @@ export default class DeshboardController {
         }
     }
     async eligibleStudents(req, res) {
-        console.log(req.body);
+        console.log("in side Req Body................",req.body);
         try {
             const result = await this.ragisterRepo.eligibleRepo(req.body)
             console.log("result", result)

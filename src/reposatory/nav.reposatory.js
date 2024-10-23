@@ -64,7 +64,7 @@ export default class DeshboardRepo{
           try {
                console.log("inside try")
               // Find the student by email to get their ObjectID
-              const student = await User.findOne({ email });
+              const student = await Student.findOne({ email });
                     console.log("student",student)
               if (!student) {
                   throw new Error("Student not found");
