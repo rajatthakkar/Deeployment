@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+      
+
+
+        /* Navbar container */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #007bff;
+            padding: 10px 20px;
+            color: white;
+        }
+
+        /* Left side items (icons) */
+        .nav-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-left a {
+            margin-right: 20px;
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-left a i {
+            margin-right: 8px;
+            font-size: 18px;
+        }
+
+        .nav-left a:hover {
+            color: #ffdd57;
+        }
+
+        /* Right side items (profile and logout) */
+        .nav-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .profile-name {
+            margin-right: 20px;
+            font-weight: 500;
+        }
+
+        .logout-btn {
+            background-color: #ff4757;
+            border: none;
+            padding: 8px 15px;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background-color: #e04050;
+        }
+       
+
+        .form-container {
+            background-color: #fff;
+            padding: 20px; /* Padding */
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 800px; /* Width of the box */
+            max-height: 300px; /* Limit height */
+        }
+
+        h3 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 15px; /* Added margin for better spacing */
+        }
+
+        .form-group {
+            margin-bottom: 15px; /* Margin */
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px; /* Padding */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .action-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 8px 15px; /* Button padding */
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .action-btn:hover {
+            background-color: #218838; /* Button hover color */
+        }
+      
+
+        /* Main container */
+        .container {
+            display: flex;
+            width: 100%;
+        }
+
+        /* Left section */
+        .student-list {
+            width: 50%;
+            background-color: #fff;
+            border-right: 1px solid #ccc;
+            padding: 20px;
+            overflow-y: hidden; /* Prevent scrolling */
+            height: auto; /* Adjust height as needed */
+        }
+
+        h3 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px; /* Make table text smaller */
+            table-layout: auto; /* Allow table to auto-adjust */
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 5px; /* Reduce padding for smaller size */
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        /* Buttons for edit and delete */
+        .btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 12px;
+            margin: 0.5rem;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Right section */
+        .company-details {
+            width: 50%;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            border-color: #007bff;
+        }
+
+        /* Add and Update buttons */
+        .action-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        .action-btn:hover {
+            background-color: #218838;
+        }
+       
+
+        .form-container {
+            background-color: #fff;
+            padding: 15px; /* Reduced padding */
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            max-height: 90%; /* Limit height */
+            overflow-y: auto; /* Allow scrolling if content exceeds height */
+        }
+
+        h3 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 15px; /* Added margin for better spacing */
+        }
+
+        .form-group {
+            margin-bottom: 10px; /* Reduced margin */
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 6px; /* Reduced padding */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .action-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 6px 12px; /* Reduced padding */
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin: 0.5rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .action-btn:hover {
+            background-color: #218838;
+        }
+     
+
+        .signup-container {
+            width: 100%;
+            max-width: 400px; /* Increased max width for medium size */
+            background-color: #fff;
+            padding: 30px; /* Adjusted padding for a more spacious feel */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px; /* Increased margin */
+            color: #333;
+            font-size: 24px; /* Increased font size */
+        }
+
+        .form-group {
+            margin-bottom: 15px; /* Increased spacing */
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px; /* Increased margin */
+            color: #666;
+            font-weight: 500;
+            font-size: 14px; /* Slightly increased font size */
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px; /* Adjusted padding */
+            font-size: 16px; /* Increased font size for better readability */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            border-color: #007bff;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px; /* Adjusted padding */
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px; /* Increased font size */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .already-account {
+            text-align: center;
+            margin-top: 12px; /* Adjusted margin */
+        }
+
+        .already-account a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 14px; /* Slightly increased font size */
+            transition: color 0.3s ease;
+        }
+
+        .already-account a:hover {
+            color: #0056b3;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f7fa;
+        }
+
+        .signin-container {
+            width: 100%;
+            max-width: 400px; /* Increased width for medium size */
+            background-color: #fff;
+            padding: 30px; /* Adjusted padding for a more spacious feel */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px; /* Slightly increased margin */
+            color: #333;
+            font-size: 24px; /* Increased font size for better visibility */
+        }
+
+        .form-group {
+            margin-bottom: 20px; /* Slightly increased margin */
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px; /* Adjusted padding */
+            font-size: 16px; /* Increased font size for better readability */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            border-color: #007bff;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px; /* Increased font size */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .forgot-password {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .forgot-password a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 14px; /* Increased font size */
+            transition: color 0.3s ease;
+        }
+
+        .forgot-password a:hover {
+            color: #0056b3;
+        }
+
+        .no-account {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .no-account a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 14px; /* Increased font size */
+            transition: color 0.3s ease;
+        }
+
+        .no-account a:hover {
+            color: #0056b3;
+        }
+        .ejsLayouts{
+            height: 100vh;
+            width: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        
+        }
+    </style>
+</head>
+<body>
+     <!-- Navbar -->
+    <nav class="navbar">
+        <!-- Left side icons -->
+        <div class="nav-left">
+            <a href="/home"><i class="fas fa-home"></i> Home</a>
+            <a href="/dashboard"><i class="fas fa-briefcase"></i> Placement Cell Dashboard</a>
+            <a href="/add-student"><i class="fas fa-user-plus"></i> Add New Student</a>
+            <a href="/add-interview"><i class="fas fa-calendar-plus"></i> Add New Interview</a>
+            <a href="/download-report"><i class="fas fa-download"></i> Download Report</a>
+        </div>
+
+        <!-- Right side profile and logout -->
+       <%if(locals.userEmail) {%>
+        <%console.log(locals.userEmail)%>
+        <div class="nav-right">
+            <span class="profile-name">John Doe</span>
+            <button class="logout-btn"><a href="/logout" >Log Out</a></button>
+        </div>
+       <%}%>
+    </nav>
+
+       <!-- Container for dynamic content -->
+       <div class="ejsLayouts">
+        <%- body %> <!-- This will render the child template body content -->
+    </div>
+</body>
+</html>

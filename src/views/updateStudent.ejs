@@ -1,0 +1,47 @@
+<div class="form-container">
+    <h3>Edit Student</h3>
+    <form id="edit-form" action="/updatestudentdata/<%= studentId %>" method="post">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+            <% console.log(studentId); %>
+
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="college">College</label>
+            <input type="text" id="college" name="college" required>
+        </div>
+        <div class="form-group">
+            <label for="batch">Batch</label>
+            <input type="text" id="batch" name="batch" required>
+        </div>
+        <div class="form-group">
+            <label for="status">Status</label>
+            <select id="status" name="status" required>
+                <option value="pass">Pass</option>
+                <option value="fail">Fail</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="dsa-score">DSA Score</label>
+            <input type="number" id="dsa-score" name="dsa_score" required>
+        </div>
+        <div class="form-group">
+            <label for="web-dev-score">Web Dev Score</label>
+            <input type="number" id="web-dev-score" name="web_score" required>
+        </div>
+        <div class="form-group">
+            <label for="react-score">React Score</label>
+            <input type="number" id="react-score" name="react_score" required>
+        </div>
+        <button type="submit" class="action-btn">Update</button>
+    </form>
+</div>
+<script>
+    const studentId = "<%= studentId %>";
+    console.log("Student ID from Front-End:", studentId);
+</script>

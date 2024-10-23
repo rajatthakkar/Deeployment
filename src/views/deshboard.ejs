@@ -1,0 +1,251 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f7fa;
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Main container */
+        .container {
+            display: flex;
+            width: 100%;
+        }
+
+        /* Left section */
+        .student-list {
+            width: 50%;
+            background-color: #fff;
+            border-right: 1px solid #ccc;
+            padding: 20px;
+            overflow-y: hidden; /* Prevent scrolling */
+            height: auto; /* Adjust height as needed */
+        }
+
+        h3 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px; /* Make table text smaller */
+            table-layout: auto; /* Allow table to auto-adjust */
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 5px; /* Reduce padding for smaller size */
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        /* Buttons for edit and delete */
+        .btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 12px;
+            margin: 0.5rem;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Right section */
+        .company-details {
+            width: 50%;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            border-color: #007bff;
+        }
+
+        /* Add and Update buttons */
+        .action-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        .action-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body> -->
+
+    <div class="container">
+        <!-- Left Section: Student List -->
+        <div class="student-list">
+            <h3>Student List</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>College</th>
+                        <th>Batch</th>
+                        <th>Status</th>
+                        <th>DSA Score</th>
+                        <th>Web Dev Score</th>
+                        <th>React Score</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% studentsData.forEach(function(student) { %>
+                        <tr>
+                            <td><%= student.name %></td>
+                            <td><%= student.email %></td>
+                            <td><%= student.college %></td>
+                            <td><%= student.batch %></td>
+                            <td><%= student.status %></td>
+                            <td><%= student.dsa_score %></td>
+                            <td><%= student.web_score %></td>
+                            <td><%= student.react_score %></td>
+                            <td>
+                                <form action="/edite-student/<%= student._id %>" method="post">
+                                    <button type="submit" class="btn">Edit</button>
+                                </form>
+                                
+                                <button class="btn"> <a href="/delete-student/<%= student._id %>">Delete<a></button>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    
+        <!-- Right Section: Company Details -->
+        <div class="company-details">
+            <h3>Company Details</h3>
+            <div class="form-group">
+                <label for="company-name">Select Company</label>
+                <select id="company-name">
+                    <option value="">-- Select Company --</option>
+                    <% interviewsResult.map(function(interview) { %>
+                        <option value="<%= interview._id %>" data-cmpname="<%= interview.cmpname %>" data-date="<%= interview.date %>" data-students='<%= JSON.stringify(interview.students) %>'>
+                            <%= interview.cmpname %>
+                        </option>
+                    <% }) %>
+                </select>
+            </div>
+    
+            <!-- Company Info Section -->
+            <div id="company-info" style="display: none;">
+                <h4>Company Name: <span id="company-name-display"></span></h4>
+                <p>Date: <span id="interview-date"></span></p>
+                <p>Enrolled Students:</p>
+                <ul id="students-list"></ul>
+    
+                <form action="/eligible-students" method="post">
+                    <!-- Hidden input for company ID -->
+                    <input type="hidden" id="company-id" name="companyId">
+    
+                    <div class="form-group">
+                        <label for="student-email">Student Email</label>
+                        <input type="email" id="student-email" placeholder="Enter student email" name="email">
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="result">Result</label>
+                        <select id="result" name="status">
+                            <option value="pass">Pass</option>
+                            <option value="fail">Fail</option>
+                        </select>
+                    </div>
+    
+                    <button type="submit" class="action-btn">Add Student</button>
+                    <button type="submit" class="action-btn">Update</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Show company details based on dropdown selection
+        document.getElementById('company-name').addEventListener('change', function () {
+            const selectedOption = this.options[this.selectedIndex];
+    
+            // Get the selected company's information from the option's data attributes
+            const companyName = selectedOption.getAttribute('data-cmpname');
+            const interviewDate = selectedOption.getAttribute('data-date');
+            const students = JSON.parse(selectedOption.getAttribute('data-students'));
+            const companyId = selectedOption.value;  // Get the selected company's ID
+    
+            // Update the company info section
+            const companyInfo = document.getElementById('company-info');
+            if (companyName) {
+                // Display the company info
+                companyInfo.style.display = 'block';
+    
+                // Update the displayed company name and interview date
+                document.getElementById('company-name-display').textContent = companyName;
+                document.getElementById('interview-date').textContent = new Date(interviewDate).toLocaleDateString();
+    
+                // Populate the student list
+                const studentsList = document.getElementById('students-list');
+                studentsList.innerHTML = students.map(student => `<li>${student.email}</li>`).join('');
+    
+                // Set the hidden input value to the selected company's ID
+                document.getElementById('company-id').value = companyId;
+            } else {
+                // Hide the company info if no company is selected
+                companyInfo.style.display = 'none';
+            }
+        });
+    </script>
+    
+    
+<!-- 
+</body>
+</html> -->

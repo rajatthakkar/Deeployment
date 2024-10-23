@@ -1,0 +1,16 @@
+<div
+    style="background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); width: 100%; max-width: 400px; text-align: center;">
+    <h1 style="color: #ff4757; font-size: 24px; margin-bottom: 15px;">Signup
+        Error</h1>
+    <p style="font-size: 16px; color: #555; margin-bottom: 10px;">There was a
+        problem with your signup request. Please check the errors below:</p>
+    <!-- Display validation errors dynamically -->
+    <div
+        style="background-color: #fbe4e6; padding: 10px; border: 1px solid #ff4757; border-radius: 5px; margin-bottom: 15px; color: #ff4757; font-size: 14px;">
+        <strong>Password Error:</strong> <%= userStatus %>
+    </div>
+    <!-- Add more error handling if needed -->
+    <a href="/"
+        style="background-color: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block;">Go
+        Back to Signup</a>
+</div>

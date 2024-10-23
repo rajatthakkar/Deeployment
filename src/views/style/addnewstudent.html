@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Student</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f7fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 15px; /* Reduced padding */
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            max-height: 90%; /* Limit height */
+            overflow-y: auto; /* Allow scrolling if content exceeds height */
+        }
+
+        h3 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 15px; /* Added margin for better spacing */
+        }
+
+        .form-group {
+            margin-bottom: 10px; /* Reduced margin */
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 6px; /* Reduced padding */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .action-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 6px 12px; /* Reduced padding */
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .action-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h3>Edit Student</h3>
+        <form id="edit-form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="college">College</label>
+                <input type="text" id="college" required>
+            </div>
+            <div class="form-group">
+                <label for="batch">Batch</label>
+                <input type="text" id="batch" required>
+            </div>
+            <div class="form-group">
+                <label for="status">Status</label>
+                <select id="status" required>
+                    <option value="pass">Pass</option>
+                    <option value="fail">Fail</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="dsa-score">DSA Score</label>
+                <input type="number" id="dsa-score" required>
+            </div>
+            <div class="form-group">
+                <label for="web-dev-score">Web Dev Score</label>
+                <input type="number" id="web-dev-score" required>
+            </div>
+            <div class="form-group">
+                <label for="react-score">React Score</label>
+                <input type="number" id="react-score" required>
+            </div>
+            <button type="submit" class="action-btn">Update</button>
+        </form>
+    </div>
+
+    <script>
+        // Get URL parameters
+        const params = new URLSearchParams(window.location.search);
+        const name = params.get('name');
+        const email = params.get('email');
+        const college = params.get('college');
+        const batch = params.get('batch');
+        const status = params.get('status');
+        const dsaScore = params.get('dsaScore');
+        const webDevScore = params.get('webDevScore');
+        const reactScore = params.get('reactScore');
+
+        // Populate the form with student data
+        document.getElementById('name').value = name;
+        document.getElementById('email').value = email;
+        document.getElementById('college').value = college;
+        document.getElementById('batch').value = batch;
+        document.getElementById('status').value = status;
+        document.getElementById('dsa-score').value = dsaScore;
+        document.getElementById('web-dev-score').value = webDevScore;
+        document.getElementById('react-score').value = reactScore;
+
+        // Handle form submission
+        document.getElementById('edit-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Handle the update logic here (e.g., send the updated data to the server)
+            alert('Student data updated successfully!');
+        });
+    </script>
+
+</body>
+</html>

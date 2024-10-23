@@ -1,0 +1,96 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Company</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f7fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 20px; /* Padding */
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 400px; /* Width of the box */
+            max-height: 300px; /* Limit height */
+        }
+
+        h3 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 15px; /* Added margin for better spacing */
+        }
+
+        .form-group {
+            margin-bottom: 15px; /* Margin */
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px; /* Padding */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .action-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 8px 15px; /* Button padding */
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .action-btn:hover {
+            background-color: #218838; /* Button hover color */
+        }
+    </style>
+</head>
+<body> -->
+
+    <div class="form-container">
+        <h3>Add Company</h3>
+        
+        <form id="company-form" action="/add-interview" method="post">
+            <div class="form-group">
+                <label for="company-name">Company Name</label>
+                <input type="text" id="company-name" name="cmpname" required>
+            </div>
+            <div class="form-group">
+                <label for="date">Date</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+            <button type="submit" class="action-btn">Add Company</button>
+        </form>
+    </div>
+
+    <script>
+        // Handle form submission
+        // document.getElementById('company-form').addEventListener('submit', function(event) {
+        //     event.preventDefault();
+        //     // Handle the submission logic here (e.g., send the data to the server)
+        //     alert('Company added successfully!');
+        // });
+    </script>
+<!-- 
+</body>
+</html> -->

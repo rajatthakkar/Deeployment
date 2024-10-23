@@ -1,0 +1,142 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f7fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden; /* Prevent scrollbars */
+        }
+
+        .signin-container {
+            width: 100%;
+            max-width: 400px; /* Increased width for medium size */
+            background-color: #fff;
+            padding: 30px; /* Adjusted padding for a more spacious feel */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px; /* Slightly increased margin */
+            color: #333;
+            font-size: 24px; /* Increased font size for better visibility */
+        }
+
+        .form-group {
+            margin-bottom: 20px; /* Slightly increased margin */
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px; /* Adjusted padding */
+            font-size: 16px; /* Increased font size for better readability */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            border-color: #007bff;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px; /* Increased font size */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .forgot-password {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .forgot-password a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 14px; /* Increased font size */
+            transition: color 0.3s ease;
+        }
+
+        .forgot-password a:hover {
+            color: #0056b3;
+        }
+
+        .no-account {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .no-account a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 14px; /* Increased font size */
+            transition: color 0.3s ease;
+        }
+
+        .no-account a:hover {
+            color: #0056b3;
+        }
+
+    </style>
+</head>
+<body> -->
+   
+
+    <div class="signin-container">
+        <h2>Sign In</h2>
+        <form action="/signin" method="POST">
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <button type="submit" class="btn">Sign In</button>
+        </form>
+
+        <div class="forgot-password">
+            <a href="/forgot-password">Forgot your password?</a>
+        </div>
+
+        <div class="no-account">
+            <a href="/ragisterd">Don't have an account? Sign up</a>
+        </div>
+    </div>
+
+<!-- </body>
+</html> -->

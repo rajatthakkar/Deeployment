@@ -1,0 +1,130 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f7fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden; /* Ensure no scroll bars appear */
+        }
+
+        .signup-container {
+            width: 100%;
+            max-width: 400px; /* Increased max width for medium size */
+            background-color: #fff;
+            padding: 30px; /* Adjusted padding for a more spacious feel */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px; /* Increased margin */
+            color: #333;
+            font-size: 24px; /* Increased font size */
+        }
+
+        .form-group {
+            margin-bottom: 15px; /* Increased spacing */
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px; /* Increased margin */
+            color: #666;
+            font-weight: 500;
+            font-size: 14px; /* Slightly increased font size */
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px; /* Adjusted padding */
+            font-size: 16px; /* Increased font size for better readability */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            border-color: #007bff;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px; /* Adjusted padding */
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px; /* Increased font size */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .already-account {
+            text-align: center;
+            margin-top: 12px; /* Adjusted margin */
+        }
+
+        .already-account a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 14px; /* Slightly increased font size */
+            transition: color 0.3s ease;
+        }
+
+        .already-account a:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body> -->
+
+    <div class="signup-container">
+        <h2>Sign Up</h2>
+        <form action="/signup" method="POST">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+            </div>
+
+            <button type="submit" class="btn">Sign Up</button>
+        </form>
+
+        <div class="already-account">
+            <a href="/">Already have an account? Sign In</a>
+        </div>
+    </div>
+
+<!-- </body>
+</html> -->
